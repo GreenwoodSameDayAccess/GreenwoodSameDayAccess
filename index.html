@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Greenwood Clinic Same-Day Community Access Pilot Project</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,11 +22,16 @@
         }
 
         h1 {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         h2 {
-            margin-top: 30px;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+
+        h3 {
+            margin-top: 0;
         }
 
         p {
@@ -59,15 +65,31 @@
             text-align: left;
             margin-top: 25px;
             font-weight: bold;
+            background-color: #ffe6e6;
+            border: 2px solid #cc0000;
+            padding: 15px;
+            border-radius: 6px;
+            color: #990000;
         }
+
+        .unavailable {
+            margin: 25px 0;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
     </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
     <h1>Greenwood Clinic</h1>
+
     <h2>Same-Day Community Access Pilot Project</h2>
 
     <p>
@@ -75,11 +97,12 @@
         when appointments are available.
     </p>
 
-    <a class="button" href="https://forms.cloud.microsoft/r/MMg2E1pZ4s">
-        Request an Appointment
-    </a>
+
+    <div id="appointmentArea"></div>
+
 
     <div class="notice">
+
         <h3>Important Information</h3>
 
         <p>
@@ -95,20 +118,47 @@
         </p>
 
         <p>
-            • If you do not receive a call from our clinic within one hour,
-            please assume that we are unable to offer an appointment today.
+            • If you do not receive a call from our clinic within one hour, please assume that we are unable to offer an appointment today.
         </p>
+
     </div>
+
 
     <div class="emergency">
+
+        <h3>⚠️ Emergency Information</h3>
+
         <p>
-            If you are experiencing urgent or emergency symptoms,
-            including chest pain, difficulty breathing, stroke symptoms,
-            or heavy bleeding, please call 911 or attend your nearest Emergency Department.
+            If you are experiencing urgent or emergency symptoms, including chest pain, difficulty breathing, stroke symptoms, or heavy bleeding, please call 911 or attend your nearest Emergency Department.
         </p>
+
     </div>
 
+
 </div>
+
+
+<script>
+
+    // CHANGE THIS TO FALSE WHEN SAME-DAY ACCESS IS NOT AVAILABLE
+
+    let acceptingAppointments = true;
+
+
+    if (acceptingAppointments) {
+
+        document.getElementById("appointmentArea").innerHTML =
+        '<a class="button" href="https://forms.cloud.microsoft/r/MMg2E1pZ4s">Request an Appointment</a>';
+
+    } else {
+
+        document.getElementById("appointmentArea").innerHTML =
+        '<div class="unavailable">Same-day appointments are currently unavailable. Please check back another day.</div>';
+
+    }
+
+</script>
+
 
 </body>
 </html>
